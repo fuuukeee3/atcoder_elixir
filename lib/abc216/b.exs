@@ -7,14 +7,15 @@ defmodule Main do
   end
 
   defp solve(n) do
-    list = for _i <- 1..n do
-      Acl.Input.get_s()
-    end
+    list =
+      for _i <- 1..n do
+        Acl.Input.get_s()
+      end
 
     count =
-    list
-    |> Enum.uniq()
-    |> Enum.count()
+      list
+      |> Enum.uniq()
+      |> Enum.count()
 
     if count == n, do: "No", else: "Yes"
   end
