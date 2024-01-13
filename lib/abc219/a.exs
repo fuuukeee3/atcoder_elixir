@@ -1,16 +1,17 @@
 defmodule Main do
   def main do
-    Acl.Input.get_n_list()
+    Acl.Input.get_n()
     |> solve()
     |> IO.puts()
   end
 
-  defp solve(nlist) do
-    s = "abcdefghijklmnopqrstuvwxyz"
-
-    nlist
-    |> Enum.map(&String.at(s, &1 - 1))
-    |> Enum.join("")
+  defp solve(n) do
+    cond do
+      n in 0..39 -> 40 - n
+      n in 40..69 -> 70 - n
+      n in 70..89 -> 90 - n
+      n in 90..100 -> "expert"
+    end
   end
 end
 

@@ -1,16 +1,17 @@
 defmodule Main do
   def main do
-    Acl.Input.get_n_list()
-    |> solve()
+    s1 = Acl.Input.get_s()
+    s2 = Acl.Input.get_s()
+    s3 = Acl.Input.get_s()
+    t = Acl.Input.get_n_list()
+
+    solve([s1, s2, s3], t)
     |> IO.puts()
   end
 
-  defp solve(nlist) do
-    s = "abcdefghijklmnopqrstuvwxyz"
-
-    nlist
-    |> Enum.map(&String.at(s, &1 - 1))
-    |> Enum.join("")
+  defp solve(slist, t) do
+    t
+    |> Enum.reduce("", fn tt, acc -> acc <> Enum.at(slist, tt - 1) end)
   end
 end
 
@@ -21,7 +22,7 @@ defmodule Acl do
     def get_s, do: IO.read(:line) |> String.trim()
 
     def get_n_list,
-      do: IO.read(:line) |> String.trim() |> String.split(" ") |> Enum.map(&String.to_integer/1)
+      do: IO.read(:line) |> String.trim() |> String.codepoints() |> Enum.map(&String.to_integer/1)
 
     def get_s_list,
       do: IO.read(:line) |> String.trim() |> String.split(" ")
