@@ -8,7 +8,7 @@ defmodule Main do
   end
 
   defp solve(n, s) do
-    if String.at(s, n-1) == "o", do: "Yes", else: "No"
+    if String.at(s, n - 1) == "o", do: "Yes", else: "No"
   end
 end
 

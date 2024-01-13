@@ -8,6 +8,7 @@ defmodule Main do
   defp solve(s) do
     [x, y] = String.split(s, ".")
     y = String.to_integer(y)
+
     cond do
       y >= 0 and y <= 2 -> "#{x}-"
       y >= 3 and y <= 6 -> "#{x}"

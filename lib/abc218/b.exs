@@ -7,9 +7,11 @@ defmodule Main do
 
   defp solve(nlist) do
     s = "abcdefghijklmnopqrstuvwxyz"
+
     nlist
-    |> Enum.map(&(String.at(s, &1 - 1)))
+    |> Enum.map(&String.at(s, &1 - 1))
     |> Enum.join("")
+
   end
 end
 
